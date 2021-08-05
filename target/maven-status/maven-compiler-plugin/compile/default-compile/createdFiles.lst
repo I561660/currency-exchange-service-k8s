@@ -1,0 +1,4 @@
+com\in28minutes\microservices\currencyexchangeservice\dao\CurrencyExchangeRepository.class
+com\in28minutes\microservices\currencyexchangeservice\controller\CurrencyExchangeCircuitBreakerController.class
+com\in28minutes\microservices\currencyexchangeservice\controller\CurrencyExchangeController.class
+com\in28minutes\microservices\currencyexchangeservice\pojo\CurrencyExchange.class

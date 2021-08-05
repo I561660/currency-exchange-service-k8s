@@ -1,0 +1,51 @@
+# Eureka Config
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+      
+# Http Config      
+server:
+  port: 8000
+  
+# Spring Config  
+spring:
+  application:
+    name: currency-exchange
+  datasource:
+    url: jdbc:h2:mem:testdb
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    
+# Circuit Breaker Config    
+resilience4j:
+  retry:
+    instances:
+      sample-api:
+        max-retry-attempts: 5
+        wait-duration: 1s
+        enable-exponential-backoff: true
+  circuitbreaker:
+    instances:
+      sample-api:
+        failure-rate-threshold: 50
+  ratelimiter:
+    instances:
+      sample-api:
+        limit-for-period: 2
+        limit-refresh-period: 10s
+
+# K8S Config
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
